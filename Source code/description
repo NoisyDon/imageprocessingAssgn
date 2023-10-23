@@ -1,0 +1,6 @@
+MATLAB was used to import an MRI scan image of each patient.
+The scans were resized into a width of 120 units and a length of 500 units
+  xmin = 50 units; ymin = 30 units
+  This is done to eliminate any undesired background parts in the scans. 
+
+
