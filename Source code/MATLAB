@@ -1,0 +1,17 @@
+healthy image = imread('39442_1.2.392.200036.9123.100.12.11.13422.2020020')
+J = imcrop(healthy image,[50,30,120,500]);
+K = imcrop(J);
+y = imresize(K,10,'bilinear') ;
+grayscale = rgb2gray(y);
+SE1 = strel("square", 6) ;
+SE2 = strel("square"，5);
+A = fspecial('average',[7 7]);
+average image = imfilter(grayscale,A) ;
+median ig = medfilt2(average image,[7 7]);
+sharpen image = imsharpen (median ig,'Radius',20,'Amount',10);
+Threshold image = im2bw(sharpen image,0.3);
+invert bwh = imcomplement (Threshold image);
+border ig = padarray(invert bwh,[10 10],0,both');
+erode ig = imerode (border ig, SE1);
+erode ig1 = imerode (erode ig， SE1);
+dilate ig = imdilate(erode ig1, SE2);
